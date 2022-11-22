@@ -25,8 +25,8 @@ for folder in tqdm.tqdm(os.listdir(p2root)):
     with open(p2root+'/'+folder+'/transcription.txt','r') as transcrip:
         lines = transcrip.read().strip().split('\n')
     for line in lines:
-        if '\t' in line:
-            file, trans = line.split("\t")
+        if "-" in line:
+            file, trans = line.split("-")
         else:
             splitted_line = line.split(" ")
             file, trans = splitted_line[0], " ".join(splitted_line[1:])
@@ -42,7 +42,7 @@ for folder in tqdm.tqdm(os.listdir(p2root)):
 #         for n,d in zip(wavs,samples):
 #             print(n,d,sep='\t',file=tsv)
 #             print(wav2trans[n],file=wrd)
-#             print(" ".join(list(wav2trans[n[:-4]].replace(" ", "|"))) + " |", file=ltr)
+#             print(" ".join(list(wav2trans[n].replace(" ", "|"))) + " |", file=ltr)
 
 
 # with open(manifest+"dict.ltr.txt",'w') as dct:
