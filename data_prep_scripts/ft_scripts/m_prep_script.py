@@ -40,7 +40,7 @@ for folder in tqdm.tqdm(os.listdir(p2root)):
         print(root,file=tsv)
         for n,d in zip(wavs,samples):
             print(n,d,sep='\t',file=tsv)
-            print(wav2trans[n[:-4]],file=wrd)
+            print(wav2trans[n],file=wrd)
             print(" ".join(list(wav2trans[n[:-4]].replace(" ", "|"))) + " |", file=ltr)
 
 
