@@ -31,20 +31,19 @@ for folder in tqdm.tqdm(os.listdir(p2root)):
             splitted_line = line.split(" ")
             file, trans = splitted_line[0], " ".join(splitted_line[1:])
         wav2trans[file] = trans
-        print(file)
-#         charset.update(trans.replace(" ","|"))
+        charset.update(trans.replace(" ","|"))
     
 
-#     with open(manifest+folder+".tsv",'w') as tsv, \
-#         open(manifest+folder+".wrd","w") as wrd, \
-#         open(manifest+folder+".ltr",'w') as ltr:
-#         print(root,file=tsv)
-#         for n,d in zip(wavs,samples):
-#             print(n,d,sep='\t',file=tsv)
-#             print(wav2trans[n],file=wrd)
-#             print(" ".join(list(wav2trans[n].replace(" ", "|"))) + " |", file=ltr)
+    with open(manifest+folder+".tsv",'w') as tsv, \
+        open(manifest+folder+".wrd","w") as wrd, \
+        open(manifest+folder+".ltr",'w') as ltr:
+        print(root,file=tsv)
+        for n,d in zip(wavs,samples):
+            print(n,d,sep='\t',file=tsv)
+            print(wav2trans[n],file=wrd)
+            print(" ".join(list(wav2trans[n].replace(" ", "|"))) + " |", file=ltr)
 
 
-# with open(manifest+"dict.ltr.txt",'w') as dct:
-#     for e,c in enumerate(charset):
-#         print(c,e,file=dct)
+with open(manifest+"dict.ltr.txt",'w') as dct:
+    for e,c in enumerate(charset):
+        print(c,e,file=dct)
