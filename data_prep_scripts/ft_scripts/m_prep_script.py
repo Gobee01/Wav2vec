@@ -14,7 +14,7 @@ charset = set()
 for folder in tqdm.tqdm(os.listdir(p2root)):
     if 'manifest' == folder:
         continue
-    wavs = glob.glob(p2root+'/'+folder+'/**/*.wav',recursive=True)
+    wavs = glob.glob(p2root+'/'+folder+'/**/*.mp3',recursive=True)
     samples = [len(sf.read(w)[0]) for w in wavs]
     #print(wavs)
     root = os.path.abspath(os.path.split(wavs[0])[0])	
