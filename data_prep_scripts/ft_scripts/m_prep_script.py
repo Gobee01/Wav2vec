@@ -31,7 +31,7 @@ for folder in tqdm.tqdm(os.listdir(p2root)):
             splitted_line = line.split(" ")
             file, trans = splitted_line[0], " ".join(splitted_line[1:])
         wav2trans[file] = trans
-        print(wav2trans[file])
+        print(file)
 #         charset.update(trans.replace(" ","|"))
     
 
